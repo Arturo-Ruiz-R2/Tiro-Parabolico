@@ -81,17 +81,18 @@ def move():
 
     draw()
 
+    #condicion para que las pelotas vuelvan a aparecer desde el principio (si no les diste)
     for target in targets:
         if not inside(target):
-            return
-
-
+            target.x=-target.x
+            goto(target.x,target.y)
+            
     ontimer(move, 10)   #Velocidad del juego
 
-setup(420, 420, 370, 0)
-hideturtle()
-up()
-tracer(False)
-onscreenclick(tap)
-move()
-done()
+setup(420, 420, 370, 100) #Posicion donde aparece la ventana y de que tamaño
+hideturtle() #Esconde el cursor
+up() #No dibuja durante el juego
+tracer(False) #Que el cursor no sea una tortuga
+onscreenclick(tap) #Hace que funcione el juego cuando le des  un click
+move() #Hace que empiece el juego
+done() #Termina el programa
